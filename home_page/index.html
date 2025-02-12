@@ -9,6 +9,25 @@
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
+        <div class="sidebar">
+            <div class="menu-item" onclick="togglePanel('instructions')">Instructions</div>
+            <div class="menu-item" onclick="togglePanel('information')">Information</div>
+        </div>
+        
+        <div class="panel" id="panel">
+            <div class="panel-content" id="panel-content">
+                <span class="close-btn" onclick="closePanel()">✕</span>
+                <div id="instructions-text" class="hidden">
+                    <h2>Instructions</h2>
+                    <p>Hover over the cigarettes to see them slightly move. Click on them to interact.</p>
+                </div>
+                <div id="information-text" class="hidden">
+                    <h2>Information</h2>
+                    <p>This artwork explores personal rituals, memory, and space.</p>
+                </div>
+            </div>
+        </div>
+
         <div class="overlay"></div>
         <div class="pack"></div>
         <div class="cigarette1"></div>
@@ -17,8 +36,24 @@
         <div class="cigarette4"></div>
         <div class="cigarette5"></div>
         <div class="cigarette6"></div>
-        <div class="cigarette7"></div>
-        
+
         <script src="app.js" async defer></script>
+        <script>
+            function togglePanel(section) {
+                document.getElementById("panel").classList.add("active");
+                document.getElementById("instructions-text").classList.add("hidden");
+                document.getElementById("information-text").classList.add("hidden");
+
+                if (section === "instructions") {
+                    document.getElementById("instructions-text").classList.remove("hidden");
+                } else if (section === "information") {
+                    document.getElementById("information-text").classList.remove("hidden");
+                }
+            }
+
+            function closePanel() {
+                document.getElementById("panel").classList.remove("active");
+            }
+        </script>
     </body>
 </html>
