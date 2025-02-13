@@ -10,19 +10,17 @@
     </head>
     <body>
         <div class="sidebar">
-            <div class="menu-item" onclick="togglePanel('instructions')">Instructions</div>
-            <div class="menu-item" onclick="togglePanel('information')">Information</div>
+            <div class="menu-item" onclick="togglePanel('instructions')">Manual</div>
+            <div class="menu-item" onclick="togglePanel('information')">About</div>
         </div>
         
         <div class="panel" id="panel">
             <div class="panel-content" id="panel-content">
                 <span class="close-btn" onclick="closePanel()">✕</span>
                 <div id="instructions-text" class="hidden">
-                    <h2>Instructions</h2>
                     <p>Hover over the cigarettes to see them slightly move. Click on them to interact.</p>
                 </div>
                 <div id="information-text" class="hidden">
-                    <h2>Information</h2>
                     <p>This artwork explores personal rituals, memory, and space.</p>
                 </div>
             </div>
