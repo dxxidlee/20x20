@@ -1,57 +1,92 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-        <div class="sidebar">
-            <div class="menu-item" onclick="togglePanel('instructions')">Manual</div>
-            <div class="menu-item" onclick="togglePanel('information')">About</div>
-        </div>
-        
-        <div class="panel" id="panel">
-            <div class="panel-content" id="panel-content">
-                <span class="close-btn" onclick="closePanel()">✕</span>
-                <div id="instructions-text" class="hidden">
-                    <p>Hover over the cigarettes to see them slightly move. Click on them to interact.</p>
-                </div>
-                <div id="information-text" class="hidden">
-                    <p>This artwork explores personal rituals, memory, and space.</p>
-                </div>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="menu-item" onclick="togglePanel('instructions')">Manual</div>
+        <div class="menu-item" onclick="togglePanel('information')">About</div>
+    </div>
+
+    <div class="panel" id="panel">
+        <div class="panel-content" id="panel-content">
+            <span class="close-btn" onclick="closePanel()">✕</span>
+            <div id="instructions-text" class="hidden">
+                <p>Hover over the cigarettes to see them slightly move. Click on them to interact.</p>
+            </div>
+            <div id="information-text" class="hidden">
+                <p>This artwork explores personal rituals, memory, and space.</p>
             </div>
         </div>
+    </div>
 
-        <div class="overlay"></div>
-        <div class="pack"></div>
-        <div class="cigarette1"></div>
-        <div class="cigarette2"></div>
-        <div class="cigarette3"></div>
-        <div class="cigarette4"></div>
-        <div class="cigarette5"></div>
-        <div class="cigarette6"></div>
+    <div class="overlay"></div>
+    <div class="pack"></div>
+    <div class="cigarette1" onclick="showTextContainer('cigarette1-container')"></div>
+    <div class="cigarette2" onclick="showTextContainer('cigarette2-container')"></div>
+    <div class="cigarette3" onclick="showTextContainer('cigarette3-container')"></div>
+    <div class="cigarette4" onclick="showTextContainer('cigarette4-container')"></div>
+    <div class="cigarette5" onclick="showTextContainer('cigarette5-container')"></div>
+    <div class="cigarette6" onclick="showTextContainer('cigarette6-container')"></div>
 
-        <script src="app.js" async defer></script>
-        <script>
-            function togglePanel(section) {
-                document.getElementById("panel").classList.add("active");
-                document.getElementById("instructions-text").classList.add("hidden");
-                document.getElementById("information-text").classList.add("hidden");
+    <div id="cigarette1-container" class="text-container">
+        <span class="close-text-btn" onclick="closeTextContainer('cigarette1-container')">✕</span>
+        I am David Lee
+    </div>
+    <div id="cigarette2-container" class="text-container">
+        <span class="close-text-btn" onclick="closeTextContainer('cigarette2-container')">✕</span>
+        I am David Lee
+    </div>
+    <div id="cigarette3-container" class="text-container">
+        <span class="close-text-btn" onclick="closeTextContainer('cigarette3-container')">✕</span>
+        I am David Lee
+    </div>
+    <div id="cigarette4-container" class="text-container">
+        <span class="close-text-btn" onclick="closeTextContainer('cigarette4-container')">✕</span>
+        I am David Lee
+    </div>
+    <div id="cigarette5-container" class="text-container">
+        <span class="close-text-btn" onclick="closeTextContainer('cigarette5-container')">✕</span>
+        I am David Lee
+    </div>
+    <div id="cigarette6-container" class="text-container">
+        <span class="close-text-btn" onclick="closeTextContainer('cigarette6-container')">✕</span>
+        I am David Lee
+    </div>
 
-                if (section === "instructions") {
-                    document.getElementById("instructions-text").classList.remove("hidden");
-                } else if (section === "information") {
-                    document.getElementById("information-text").classList.remove("hidden");
-                }
+    <script>
+        function togglePanel(section) {
+            document.getElementById("panel").classList.add("active");
+            document.getElementById("instructions-text").classList.add("hidden");
+            document.getElementById("information-text").classList.add("hidden");
+
+            if (section === "instructions") {
+                document.getElementById("instructions-text").classList.remove("hidden");
+            } else if (section === "information") {
+                document.getElementById("information-text").classList.remove("hidden");
             }
+        }
 
-            function closePanel() {
-                document.getElementById("panel").classList.remove("active");
-            }
-        </script>
-    </body>
+        function closePanel() {
+            document.getElementById("panel").classList.remove("active");
+        }
+
+        function showTextContainer(containerId) {
+            document.querySelectorAll('.text-container').forEach(container => {
+                container.classList.remove("active");
+            });
+            document.getElementById(containerId).classList.add("active");
+        }
+
+        function closeTextContainer(containerId) {
+            document.getElementById(containerId).classList.remove("active");
+        }
+    </script>
+</body>
 </html>
