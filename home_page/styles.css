@@ -17,7 +17,6 @@ body {
     z-index: 1;
 }
 
-/* Common cigarette styles */
 [class^="cigarette"] {
     position: absolute;
     transform: translate(-50%, -50%) rotate(-90deg);
@@ -35,7 +34,6 @@ body {
     transform: translate(-50%, -65%) rotate(-90deg);
 }
 
-/* Individual cigarette positions */
 .cigarette1 {
     top: 50%;
     left: 41%;
@@ -84,70 +82,72 @@ body {
     pointer-events: none;
 }
 
-.sidebar {
+.menu-items {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 2.5%;
-    height: 100vh;
-    background: #a0474a;
-    color: #101010;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-    padding-bottom: 20px;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
     z-index: 5000;
-    position: relative;
 }
 
 .menu-item {
     font-size: 15px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, sans-serif;
     font-weight: 600;
+    color: white;
+    margin: 20px 0;
     cursor: pointer;
-    transition: 0.3s;
-    position: absolute;
-    left: 50%;
-    transform: rotate(-90deg) translateX(50%);
-    transform-origin: left bottom;
     text-transform: uppercase;
-    white-space: nowrap;
-    cursor: pointer;
-}
-
-.menu-item:nth-child(1) {
-    bottom: 75px;
-}
-
-.menu-item:nth-child(2) {
-    bottom: 10px;
+    transition: color 0.3s;
+    z-index: 6000;
+    mix-blend-mode: difference;
 }
 
 .menu-item:hover {
     color: lightgray;
 }
 
+.blur-content [class^="cigarette"],
+.blur-content .pack {
+    filter: blur(5px) invert(1);
+    pointer-events: none;
+}
+
+.blur-content {
+    backdrop-filter: blur(5px) invert(1);
+    -webkit-backdrop-filter: blur(5px) invert(1);
+}
+
+.blur-content .menu-item {
+    filter: none;
+    pointer-events: auto;
+}
+
 .panel {
     position: fixed;
     top: 0;
-    left: 2.5%;
-    width: 0;
+    left: 0;
+    width: 100%;
     height: 100vh;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 500;
-    background: #a0474a;
-    color: #101010;
-    overflow: hidden;
-    transition: width 0.5s ease-in-out;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out;
     z-index: 5001;
 }
 
 .panel.active {
-    width: 30%;
+    opacity: 1;
+    visibility: visible;
 }
 
 .panel-content {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
     padding: 25px;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
@@ -167,6 +167,8 @@ body {
     position: absolute;
     top: 10px;
     right: 15px;
+    color: white;
+    z-index: 5002;
 }
 
 .text-container {
@@ -206,4 +208,72 @@ body {
     cursor: pointer;
     font-size: 18px;
     color: white;
+}
+
+#instructions-text, #information-text {
+    text-align: center;
+    font-size: 18px;
+    max-width: 600px;
+}
+
+.blur-content {
+    backdrop-filter: blur(5px) invert(1);
+    -webkit-backdrop-filter: blur(5px) invert(1);
+    transition: backdrop-filter 0.5s ease-in-out, -webkit-backdrop-filter 0.5s ease-in-out;
+}
+
+.blur-content [class^="cigarette"],
+.blur-content .pack {
+    filter: blur(5px) invert(1);
+    pointer-events: none;
+    transition: filter 0.5s ease-in-out;
+}
+
+[class^="cigarette"] {
+    transition: transform 0.3s ease-in-out, filter 0.5s ease-in-out;
+}
+
+.pack {
+    transition: filter 0.5s ease-in-out;
+}
+
+.panel {
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+.panel-content {
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Menu items excluded from blur/invert */
+.menu-item {
+    color: white;
+    z-index: 10000; /* Higher than all other elements */
+    isolation: isolate; /* Creates a new stacking context */
+    mix-blend-mode: difference; /* Makes text visible regardless of background */
+}
+
+.blur-content .menu-items {
+    filter: none;
+    pointer-events: auto;
+}
+
+/* Add transition to body for smoother effect */
+body {
+    transition: backdrop-filter 0.5s ease-in-out;
+}
+
+/* Keep blur and invert on everything else */
+.blur-content {
+    backdrop-filter: blur(5px) invert(1);
+    -webkit-backdrop-filter: blur(5px) invert(1);
+    transition: backdrop-filter 0.5s ease-in-out, -webkit-backdrop-filter 0.5s ease-in-out;
+}
+
+/* Smoother transitions for all relevant elements */
+[class^="cigarette"],
+.pack,
+.panel,
+.panel-content {
+    transition: all 0.5s ease-in-out;
 }
