@@ -84,27 +84,33 @@ body {
 
 .menu-items {
     position: fixed;
-    top: 50%;
-    left: 20px;
-    transform: translateY(-50%);
+    bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+    box-sizing: border-box;
     z-index: 5000;
 }
 
 .menu-item {
-    font-size: 15px;
-    font-family: Arial, sans-serif;
-    font-weight: 600;
-    color: white;
-    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 180px;
+    height: auto;
     cursor: pointer;
-    text-transform: uppercase;
-    transition: color 0.3s;
-    z-index: 6000;
-    mix-blend-mode: difference;
+    transition: filter 0.3s ease-in-out;
 }
 
 .menu-item:hover {
-    color: lightgray;
+    filter: blur(1px);
+}
+
+.menu-item img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 .blur-content [class^="cigarette"],
@@ -248,12 +254,11 @@ body {
     transition: opacity 0.5s ease-in-out;
 }
 
-/* Menu items excluded from blur/invert */
 .menu-item {
     color: white;
-    z-index: 10000; /* Higher than all other elements */
-    isolation: isolate; /* Creates a new stacking context */
-    mix-blend-mode: difference; /* Makes text visible regardless of background */
+    z-index: 10000;
+    isolation: isolate;
+    mix-blend-mode: difference;
 }
 
 .blur-content .menu-items {
@@ -261,19 +266,16 @@ body {
     pointer-events: auto;
 }
 
-/* Add transition to body for smoother effect */
 body {
     transition: backdrop-filter 0.5s ease-in-out;
 }
 
-/* Keep blur and invert on everything else */
 .blur-content {
     backdrop-filter: blur(5px) invert(1);
     -webkit-backdrop-filter: blur(5px) invert(1);
     transition: backdrop-filter 0.5s ease-in-out, -webkit-backdrop-filter 0.5s ease-in-out;
 }
 
-/* Smoother transitions for all relevant elements */
 [class^="cigarette"],
 .pack,
 .panel,
