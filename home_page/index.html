@@ -28,11 +28,15 @@
                     <li>Click or tap on any cigarette to begin exploring.</li>
                     <li>Read the interview at your own pace while listening to a song the interviewee enjoys while smoking.</li>
                     <li>After finishing an interview, you can close the tab and continue exploring the rest.</li>
-                    <li>Or don’t. Step outside, light up, play your favorite song—just 20 minutes gone.</li>
+                    <li>Or don't. Step outside, light up, play your favorite song—just 20 minutes gone.</li>
                 </ol>
             </div>
             <div id="information-text" class="hidden">
-                <p>This artwork explores personal rituals, memory, and space.</p>
+                <p>20X20 is a collection of conversations with tobacco users, exploring why people smoke despite its well-documented health risks. The name derives from two key references: the average life lost per cigarette—approximately 20 minutes (17 minutes for men, 22 for women) and the 20 cigarettes in a standard pack. Together, they form a stark equation—400 minutes lost per pack.</p>
+                <p>Inspired by cigarette warning labels outside the U.S., 20X20 presents a custom-designed pack with six cigarettes extending from it. Users can hover, click, or tap on a cigarette to access a conversation, accompanied by the interviewee's favorite smoking song. This immersive experience invites users to engage at their own pace—perhaps even with a cigarette in hand, though that's certainly not encouraged.</p>
+                <p>Rather than romanticizing or justifying smoking, 20X20 offers an unfiltered look at personal motivations and attitudes toward tobacco use. Whether you're a smoker or non-smoker, the project invites introspection, understanding, and perspective.</p>
+                <p>Conceived and created by David Lee under the guidance of Betty Wang for Core 2: Interaction Studio at Parsons School of Design.</p>
+                <p>[Listen to the playlist on Spotify.]</p>
             </div>
         </div>
     </div>
@@ -47,50 +51,187 @@
 
     <div id="cigarette1-container" class="text-container">
         <span class="close-text-btn" onclick="closeTextContainer('cigarette1-container')">✕</span>
-        Abby Kim
-        <div class="interview">
-            <div class="question">What is your name?</div>
-            <div class="answer">I am Abby Kim</div>
+        <audio id="interview-audio" hidden>
+            <source src="home_mp3/lavender_buds.mp3" type="audio/mpeg">
+            Your browser does not support the audio tag.
+        </audio>
+        <div class="song-name">Lavender Buds - MF DOOM</div>
+        <div class="color-change" onclick="toggleColors()">Dark</div>
+        <div class="interview-name">
+            <img src="home_img/abby.png" alt="Abby">
+        </div>
+        <div class="interview" id="interview">
+            <div class="qa-container">
+                <span class="question">Hello, what's your name and how many cigarettes do you smoke a day?</span>
+            </div>
+            <div class="qa-container">
+                <span class="answer">Hello, my name is Abby Kim and…</span>
+            </div>
+            <div class="qa-container">
+                <span class="question">Wow, full name?</span>
+            </div>
+            <div class="qa-container">
+                <span class="answer">You want my legal name? (laughs) Abigail Song Kim. I normally smoke around three to four times a day. Depends.</span>
+            </div>
+            <div class="qa-container">
+                <span class="question">What depends? What makes it three or four?</span>
+            </div>
+            <div class="qa-container">
+                <span class="answer">On a day I don't have as many classes, probably a little bit less. Just because I feel like the act of going outside… I'm just kind of lazy.</span>
+            </div>
+            <div class="qa-container">
+                <span class="question">So the more classes you have, the more you smoke?</span>
+            </div>
+            <div class="qa-container">
+                <span class="answer">Yes.</span>
+            </div>
+            <div class="qa-container">
+                <span class="question">Logical… and did you know smoking one cigarette deducts 20 minutes of your lifespan?</span>
+            </div>
+            <div class="qa-container">
+                <span class="answer">I didn't before you told me a few weeks ago… Well, I obviously knew it did shorten it to some extent, but I didn't know it was 20 minutes.</span>
+            </div>
+            <div class="qa-container">
+                <span class="question">So why do you smoke? Kind of sounds like a weird question, but that's the whole point of the interview, you know?</span>
+            </div>
+            <div class="qa-container">
+                <span class="answer">Yeah, I got you. Um, I would say mostly that… it's kind of ingrained in my routine, a decent amount. I've been kind of addicted to nicotine since sophomore year of high school.</span>
+            </div>
+            <div class="qa-container">
+                <span class="question">Did you start with vaping or cigarettes?</span>
+            </div>
+            <div class="qa-container">
+                <span class="answer">I started with vaping, and that kind of started as like, "Oh, my friends are doing it." I tried it, not thinking that it would lead to six years of this, but…</span>
+            </div>
+            <div class="qa-container">
+                <span class="question">Do you feel like being at our school, where a lot of students smoke, and it also being in the city makes you smoke more?</span>
+            </div>
+            <div class="qa-container">
+                <span class="answer">The chances of smoking definitely increase. I mean… I think I'm at a point now where it's been better than a couple of years ago, where I can just, like, stop if I really wanted to. I know that a lot of people say, "Oh, I can stop whenever I want," but I have done it before in the past, which kind of gives me some insurance about it. But being around friends who smoke does make it more convenient and more of like a, "Yeah, I'll do that."</span>
+            </div>
+            <div class="qa-container">
+                <span class="question">Do you think you smoke because of your friends and the people you're around, or is it past that point where you just do it to take a break or whatever?</span>
+            </div>
+            <div class="qa-container">
+                <span class="answer">I think the accessibility has to do with my friends smoking, like, a decent amount. Like, when we're on a break, you and I will go outside, and we both have several friends who do, too. So that's definitely part of it. But also, it's a huge stress reliever and almost a crutch.</span>
+            </div>
+            <div class="qa-container">
+                <span class="question">Yeah. Do you like listening to music when you smoke?</span>
+            </div>
+            <div class="qa-container">
+                <span class="answer">Oh, yeah, always. It's like part of the experience for me.</span>
+            </div>
+            <div class="qa-container">
+                <span class="question">What song do you think you listen to the most when you smoke?</span>
+            </div>
+            <div class="qa-container">
+                <span class="answer">Probably "Lavender Buds" by MF DOOM. It just puts me in this really chill, hazy vibe that makes smoking feel even better. The beat is so mellow, it kind of slows everything down for me.</span>
+            </div>
+            <div class="qa-container">
+                <span class="question">That makes sense. So even if you were smoking alone, it wouldn't feel as empty?</span>
+            </div>
+            <div class="qa-container">
+                <span class="answer">Yeah, exactly. I think it fills the space in a way. Like, even when I smoke with people, we're usually listening to something anyway.</span>
+            </div>
+            <div class="qa-container">
+                <span class="question">Yeah, I get that. Do you think you'll keep smoking even after you graduate? Like, if you end up in a corporate job where people also take smoke breaks? Or do you have a goal for quitting?</span>
+            </div>
+            <div class="qa-container">
+                <span class="answer">I don't know if I have a specific goal. It's definitely something I don't wanna do for the rest of my life. I think all the time, if I had never started, would I be doing it now? So there is a definite kind of future goal to quit. I'm conscious of it, but also, like… I don't know exactly. We'll see.</span>
+            </div>
+            <div class="qa-container">
+                <span class="question">Yeah. I hope we can all quit by the time we're looking at this website or something, like, 10 years later. Saying, "Oh, yeah, I fucking quit."</span>
+            </div>
+            <div class="qa-container">
+                <span class="answer">(laughs) I thought you were talking about the final critique.</span>
+            </div>
+            <div class="qa-container">
+                <span class="question">No, no, no—(loud car honk) Damn, they really had to ruin it like that.</span>
+            </div>
+            <div class="qa-container">
+                <span class="answer">Can you include that in the interview? (laughing) That's gonna be so funny.</span>
+            </div>
+            <div class="qa-container">
+                <span class="question">(coughs)</span>
+            </div>
+            <div class="qa-container">
+                <span class="answer">But yeah, besides it being a stress reliever, it's also just a nice way to, like, take a break. Especially if we're in a three-hour class, we just go outside and chill for a bit. I don't have to think about my projects at that moment.</span>
+            </div>
+            <div class="qa-container">
+                <span class="question">Oh, so do you think you stop thinking when you smoke? Because I feel like some people use it as a break to actually think more. Like, they step away from their work, and while they're not physically in front of it, they're thinking about it more clearly.</span>
+            </div>
+            <div class="qa-container">
+                <span class="answer">I mean, for me, I get to take a step back as if I'm not the one designing the things I'm designing. It helps me look at things from an outside perspective instead of being glued to my screen 24/7. I just get to, like, think plainly about it, if that makes sense.</span>
+            </div>
+            <div class="qa-container">
+                <span class="question">So I guess we gotta have no stress for us to quit.</span>
+            </div>
+            <div class="qa-container">
+                <span class="answer">Oh my God. Don't say that shit, man. That's awful.</span>
+            </div>
+            <div class="qa-container">
+                <span class="question">(laughs) Never mind. Alright, I'm cutting it here—we're done.</span>
+            </div>
         </div>
     </div>
     <div id="cigarette2-container" class="text-container">
         <span class="close-text-btn" onclick="closeTextContainer('cigarette2-container')">✕</span>
         Guy Timor
-        <div class="interview">
-            <div class="question">What is your name?</div>
-            <div class="answer">I am Guy Timor</div>
+        <div class="interview" id="interview">
+            <div class="qa-container">
+                <span class="question">What is your name?</span>
+            </div>
+            <div class="qa-container">
+                <span class="answer">I am Guy Timor</span>
+            </div>
         </div>
     </div>
     <div id="cigarette3-container" class="text-container">
         <span class="close-text-btn" onclick="closeTextContainer('cigarette3-container')">✕</span>
         Mark Li
-        <div class="interview">
-            <div class="question">What is your name?</div>
-            <div class="answer">I am Mark Li </div>
+        <div class="interview" id="interview">
+            <div class="qa-container">
+                <span class="question">What is your name?</span>
+            </div>
+            <div class="qa-container">
+                <span class="answer">I am Mark Li </span>
+            </div>
         </div>
     </div>
     <div id="cigarette4-container" class="text-container">
         <span class="close-text-btn" onclick="closeTextContainer('cigarette4-container')">✕</span>
         Haz
-        <div class="interview">
-            <div class="question">What is your name?</div>
-            <div class="answer">I am Haz</div>
+        <div class="interview" id="interview">
+            <div class="qa-container">
+                <span class="question">What is your name?</span>
+            </div>
+            <div class="qa-container">
+                <span class="answer">I am Haz</span>
+            </div>
         </div>
     </div>
     <div id="cigarette5-container" class="text-container">
         <span class="close-text-btn" onclick="closeTextContainer('cigarette5-container')">✕</span>
         Jenny Lee
-        <div class="interview">
-            <div class="question">What is your name?</div>
-            <div class="answer">I am Jenny Lee</div>
+        <div class="interview" id="interview">
+            <div class="qa-container">
+                <span class="question">What is your name?</span>
+            </div>
+            <div class="qa-container">
+                <span class="answer">I am Jenny Lee</span>
+            </div>
         </div>
     </div>
     <div id="cigarette6-container" class="text-container">
         <span class="close-text-btn" onclick="closeTextContainer('cigarette6-container')">✕</span>
         Luke Markette
-        <div class="interview">
-            <div class="question">What is your name?</div>
-            <div class="answer">I am Luke Markette</div>
+        <div class="interview" id="interview">
+            <div class="qa-container">
+                <span class="question">What is your name?</span>
+            </div>
+            <div class="qa-container">
+                <span class="answer">I am Luke Markette</span>
+            </div>
         </div>
     </div>
 
@@ -100,10 +241,57 @@
                 container.classList.remove("active");
             });
             document.getElementById(containerId).classList.add("active");
+            
+            // Play audio if it's cigarette1-container
+            if (containerId === 'cigarette1-container') {
+                const audio = document.getElementById('interview-audio');
+                audio.volume = 0;  // Start at 0 volume
+                audio.play();
+                
+                // Smoother fade in
+                let volume = 0;
+                const fadeIn = setInterval(() => {
+                    if (volume < 1) {
+                        volume += 0.05;  // Smaller increments
+                        audio.volume = volume;
+                    } else {
+                        clearInterval(fadeIn);
+                    }
+                }, 40);  // More frequent updates
+            }
+            
+            const interviewDiv = document.getElementById(containerId).querySelector('.interview');
+            interviewDiv.addEventListener('scroll', adjustOpacityOnScroll);
+            adjustOpacityOnScroll();
         }
 
         function closeTextContainer(containerId) {
-            document.getElementById(containerId).classList.remove("active");
+            const container = document.getElementById(containerId);
+            
+            // Fade out audio if it's cigarette1-container
+            if (containerId === 'cigarette1-container') {
+                const audio = document.getElementById('interview-audio');
+                
+                // Smoother fade out
+                let volume = audio.volume;
+                const fadeOut = setInterval(() => {
+                    if (volume > 0) {
+                        volume -= 0.05;  // Smaller increments
+                        audio.volume = volume;
+                    } else {
+                        clearInterval(fadeOut);
+                        audio.pause();
+                        audio.currentTime = 0;
+                    }
+                }, 40);  // More frequent updates
+            }
+            
+            // Longer delay to match new fade duration
+            setTimeout(() => {
+                container.classList.remove("active");
+                const interviewDiv = container.querySelector('.interview');
+                interviewDiv.removeEventListener('scroll', adjustOpacityOnScroll);
+            }, 200);
         }
 
         function togglePanel(section) {
@@ -136,6 +324,42 @@
             document.querySelectorAll('[class^="cigarette"]').forEach(cig => {
             cig.style.pointerEvents = 'auto';
             });
+        }
+
+        function adjustOpacityOnScroll(event) {
+            const activeContainer = document.querySelector('.text-container.active');
+            if (!activeContainer) return;
+
+            const interview = activeContainer.querySelector('.interview');
+            if (!interview) return;
+
+            const spans = Array.from(interview.querySelectorAll('.question, .answer'));
+            const containerHeight = interview.clientHeight;
+            const containerCenter = containerHeight / 2;
+
+            spans.forEach((span) => {
+                const rect = span.getBoundingClientRect();
+                const interviewRect = interview.getBoundingClientRect();
+                const spanRelativeTop = rect.top - interviewRect.top;
+                const spanCenter = spanRelativeTop + rect.height / 2;
+                const distanceFromCenter = Math.abs(spanCenter - containerCenter);
+                const maxDistance = containerHeight / 2;
+                
+                span.style.opacity = Math.max(0.1, (1 - distanceFromCenter / maxDistance)).toFixed(2);
+            });
+        }
+
+        function toggleColors() {
+            const container = document.getElementById('cigarette1-container');
+            const colorChangeBtn = container.querySelector('.color-change');
+            container.classList.toggle('inverted');
+            
+            // Update button text based on inverted state
+            if (container.classList.contains('inverted')) {
+                colorChangeBtn.textContent = 'Light';
+            } else {
+                colorChangeBtn.textContent = 'Dark';
+            }
         }
     </script>
 </body>
