@@ -60,6 +60,7 @@
             <img src="home_img/abby.png" alt="Abby">
         </div>
         <div class="interview" id="interview">
+            <div class="random-cig-image"></div>
             <div class="qa-container">
                 <span class="question">Hello, what's your name and how many cigarettes do you smoke a day?</span>
             </div>
@@ -185,6 +186,7 @@
             <img src="home_img/diego.png" alt="Diego">
         </div>
         <div class="interview" id="interview">
+            <div class="random-cig-image"></div>
             <div class="qa-container">
                 <span class="question">Hello, what's your name and how many cigarettes do you smoke a day?</span>
             </div>
@@ -295,6 +297,7 @@
             <img src="home_img/mark.png" alt="Mark">
         </div>
         <div class="interview" id="interview">
+            <div class="random-cig-image"></div>
             <div class="qa-container">
                 <span class="question">Hello, what's your name and how many cigarettes do you smoke a day?</span>
             </div>
@@ -441,6 +444,7 @@
             <img src="home_img/alex.png" alt="Alex">
         </div>
         <div class="interview" id="interview">
+            <div class="random-cig-image"></div>
             <div class="qa-container">
                 <span class="question">Hello, what's your name and how many cigarettes do you smoke a day?</span>
             </div>
@@ -557,6 +561,7 @@
             <img src="home_img/jenny.png" alt="Jenny">
         </div>
         <div class="interview" id="interview">
+            <div class="random-cig-image"></div>
             <div class="qa-container">
                 <span class="question">Hello, what's your name and how many cigarettes do you smoke a day?</span>
             </div>
@@ -673,6 +678,7 @@
             <img src="home_img/luke.png" alt="Luke">
         </div>
         <div class="interview" id="interview">
+            <div class="random-cig-image"></div>
             <div class="qa-container">
                 <span class="question">Hello, what's your name and how many cigarettes do you smoke a day?</span>
             </div>
@@ -785,6 +791,9 @@
             });
             document.getElementById(containerId).classList.add("active");
             
+            // Update random image when container is opened
+            updateRandomImage();
+            
             // Play audio for respective containers
             if (containerId === 'cigarette1-container') {
                 const audio = document.getElementById('interview-audio');
@@ -879,6 +888,9 @@
 
         function closeTextContainer(containerId) {
             const container = document.getElementById(containerId);
+            
+            // Remove random image when container is closed
+            document.querySelectorAll('.random-cig-image').forEach(img => img.remove());
             
             // Fade out audio for respective containers
             if (containerId === 'cigarette1-container') {
@@ -1024,6 +1036,9 @@
         }
 
         function toggleColors() {
+            if (document.querySelector('.text-container.active')) {
+                updateRandomImage();
+            }
             const container = document.getElementById('cigarette1-container');
             const colorChangeBtn = container.querySelector('.color-change');
             container.classList.toggle('inverted');
@@ -1037,6 +1052,9 @@
         }
 
         function toggleColors2() {
+            if (document.querySelector('.text-container.active')) {
+                updateRandomImage();
+            }
             const container = document.getElementById('cigarette2-container');
             const colorChangeBtn = container.querySelector('.color-change');
             container.classList.toggle('inverted');
@@ -1049,6 +1067,9 @@
         }
 
         function toggleColors3() {
+            if (document.querySelector('.text-container.active')) {
+                updateRandomImage();
+            }
             const container = document.getElementById('cigarette3-container');
             const colorChangeBtn = container.querySelector('.color-change');
             container.classList.toggle('inverted');
@@ -1061,6 +1082,9 @@
         }
 
         function toggleColors5() {
+            if (document.querySelector('.text-container.active')) {
+                updateRandomImage();
+            }
             const container = document.getElementById('cigarette5-container');
             const colorChangeBtn = container.querySelector('.color-change');
             container.classList.toggle('inverted');
@@ -1073,6 +1097,9 @@
         }
 
         function toggleColors6() {
+            if (document.querySelector('.text-container.active')) {
+                updateRandomImage();
+            }
             const container = document.getElementById('cigarette6-container');
             const colorChangeBtn = container.querySelector('.color-change');
             container.classList.toggle('inverted');
@@ -1085,6 +1112,9 @@
         }
 
         function toggleColors4() {
+            if (document.querySelector('.text-container.active')) {
+                updateRandomImage();
+            }
             const container = document.getElementById('cigarette4-container');
             const colorChangeBtn = container.querySelector('.color-change');
             container.classList.toggle('inverted');
@@ -1094,6 +1124,30 @@
             } else {
                 colorChangeBtn.textContent = 'Dark';
             }
+        }
+
+        function updateRandomImage() {
+            // Remove ALL existing random images to ensure only one exists
+            document.querySelectorAll('.random-cig-image').forEach(img => img.remove());
+
+            // Create single new random image
+            const randomImage = document.createElement('div');
+            randomImage.className = 'random-cig-image';
+            const imageNumber = Math.floor(Math.random() * 20) + 1;
+            randomImage.style.background = `url('home_img/cig${imageNumber}.png') no-repeat center center`;
+            randomImage.style.backgroundSize = 'contain';
+
+            // Set random position with padding from edges
+            const padding = window.innerWidth * 0.1;
+            const imageSize = window.innerWidth * 0.3;
+            const x = padding + Math.random() * (window.innerWidth - imageSize - padding * 2);
+            const y = padding + Math.random() * (window.innerHeight - imageSize - padding * 2);
+            
+            randomImage.style.left = `${x}px`;
+            randomImage.style.top = `${y}px`;
+
+            // Add single image to document body
+            document.body.appendChild(randomImage);
         }
     </script>
 </body>

@@ -333,7 +333,6 @@ body {
     overflow-y: auto;
     position: relative;
     background: black;
-    border-radius: 10px;
     scrollbar-width: thin;
     scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
     display: flex;
@@ -592,4 +591,19 @@ body {
 .underline:hover {
     color: #FAF9F6;
     text-decoration: none;
+}
+
+.random-cig-image {
+    position: fixed;
+    width: 30vw;
+    height: 30vw;
+    opacity: 0.5;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    z-index: 10001;
+}
+
+.text-container.inverted .random-cig-image {
+    filter: invert(1) grayscale(1);
+    position: fixed;
 }
