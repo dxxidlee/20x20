@@ -18,13 +18,13 @@ body {
 }
 
 [class^="cigarette"] {
-    position: absolute;
+    position: fixed;
     transform: translate(-50%, -50%) rotate(-90deg);
     background: url('home_img/cig_png_new.png') no-repeat center center;
     background-size: contain;
     width: 604px;
     height: 402px;
-    filter: drop-shadow(8px 5px 4px rgb(35, 35, 35));
+    filter: drop-shadow(4px 3px 3px rgba(35, 35, 35, 0.7));
     flex-shrink: 0;
     transition: transform 0.3s ease-in-out;
     z-index: 1000;
@@ -34,43 +34,8 @@ body {
     transform: translate(-50%, -65%) rotate(-90deg);
 }
 
-.cigarette1 {
-    top: 50%;
-    left: 41%;
-}
-
-.cigarette2 {
-    top: 55%;
-    left: 44%;
-}
-
-.cigarette3 {
-    top: 45%;
-    left: 44.3%;
-    z-index: 800;
-}
-
-.cigarette4 {
-    top: 43%;
-    left: 56.25%;
-    z-index: 100;
-    filter: drop-shadow(-10px 5px 4px rgb(35, 35, 35));
-}
-
-.cigarette5 {
-    top: 48%;
-    left: 57%;
-    z-index: 800;
-}
-
-.cigarette6 {
-    top: 40%;
-    left: 59%;
-    z-index: 200;
-}
-
 .pack {
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -90,7 +55,7 @@ body {
     justify-content: space-between;
     padding: 0 15px;
     box-sizing: border-box;
-    z-index: 5000;
+    z-index: 5500;
 }
 
 .menu-item {
@@ -435,4 +400,70 @@ body {
 /* Keep audio controls normal if visible */
 .text-container.inverted audio {
     filter: invert(0);
+}
+
+/* Position cigarettes relative to pack center */
+.cigarette1 {
+    top: 50%;
+    left: 50%;
+    transform: translate(calc(-50% - 140px), -50%) rotate(-90deg);
+}
+
+.cigarette2 {
+    top: 55%;
+    left: 50%;
+    transform: translate(calc(-50% - 110px), -50%) rotate(-90deg);
+}
+
+.cigarette3 {
+    top: 47%;
+    left: 50%;
+    transform: translate(calc(-50% - 95px), -50%) rotate(-90deg);
+    z-index: 800;
+}
+
+.cigarette4 {
+    top: 46%;
+    left: 50%;
+    transform: translate(calc(-50% + 95px), -50%) rotate(-90deg);
+    z-index: 200;
+}
+
+.cigarette5 {
+    top: 57%;
+    left: 50%;
+    transform: translate(calc(-50% + 110px), -50%) rotate(-90deg);
+    z-index: 800;
+}
+
+.cigarette6 {
+    top: 52%;
+    left: 50%;
+    transform: translate(calc(-50% + 140px), -50%) rotate(-90deg);
+    z-index: 300;
+}
+
+/* Update hover states to match new positions */
+.cigarette1:hover {
+    transform: translate(calc(-50% - 140px), -65%) rotate(-90deg);
+}
+
+.cigarette2:hover {
+    transform: translate(calc(-50% - 110px), -65%) rotate(-90deg);
+}
+
+.cigarette3:hover {
+    transform: translate(calc(-50% - 95px), -65%) rotate(-90deg);
+}
+
+.cigarette4:hover {
+    transform: translate(calc(-50% + 95px), -65%) rotate(-90deg);
+}
+
+.cigarette5:hover {
+    transform: translate(calc(-50% + 110px), -65%) rotate(-90deg);
+}
+
+.cigarette6:hover {
+    transform: translate(calc(-50% + 140px), -65%) rotate(-90deg);
 }
