@@ -78,15 +78,41 @@ body {
     display: block;
 }
 
+/* Add these media queries */
+@media screen and (max-width: 768px) {
+    .menu-item {
+        width: 160px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .menu-item {
+        width: 120px;
+    }
+    
+    .menu-items {
+        bottom: 10px;
+        padding: 0 10px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .menu-item {
+        width: 100px;
+    }
+}
+
 .blur-content [class^="cigarette"],
 .blur-content .pack {
-    filter: blur(5px) invert(1);
+    filter: blur(5px) invert(1) grayscale(1);
     pointer-events: none;
+    transition: filter 0.5s ease-in-out;
 }
 
 .blur-content {
-    backdrop-filter: blur(5px) invert(1);
-    -webkit-backdrop-filter: blur(5px) invert(1);
+    backdrop-filter: blur(5px) invert(1) grayscale(1);
+    -webkit-backdrop-filter: blur(5px) invert(1) grayscale(1);
+    transition: backdrop-filter 0.5s ease-in-out, -webkit-backdrop-filter 0.5s ease-in-out;
 }
 
 .blur-content .menu-item {
@@ -182,23 +208,56 @@ body {
 }
 
 #instructions-text, #information-text {
-    text-align: left;
-    font-size: 18px;
     max-width: 600px;
     font-family: Arial, Helvetica, sans-serif;
-    font-weight: 500;
-    font-stretch: 200%;
+    font-size: clamp(16px, 1.8vw, 22px);
+    font-weight: 0;
+    letter-spacing: -0.05rem;
+    line-height: 1;
+    text-wrap: balance;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+#instructions-text {
+    text-align: center;
+}
+
+#information-text {
+    text-align: left;
+}
+
+@media screen and (max-width: 768px) {
+    #instructions-text, #information-text {
+        font-size: clamp(14px, 1.6vw, 20px);
+        max-width: 500px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #instructions-text, #information-text {
+        font-size: clamp(12px, 1.4vw, 18px);
+        max-width: 400px;
+        letter-spacing: -0.03rem;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    #instructions-text, #information-text {
+        font-size: clamp(11px, 1.2vw, 16px);
+        max-width: 300px;
+    }
 }
 
 .blur-content {
-    backdrop-filter: blur(5px) invert(1);
-    -webkit-backdrop-filter: blur(5px) invert(1);
+    backdrop-filter: blur(5px) invert(1) grayscale(1);
+    -webkit-backdrop-filter: blur(5px) invert(1) grayscale(1);
     transition: backdrop-filter 0.5s ease-in-out, -webkit-backdrop-filter 0.5s ease-in-out;
 }
 
 .blur-content [class^="cigarette"],
 .blur-content .pack {
-    filter: blur(5px) invert(1);
+    filter: blur(5px) invert(1) grayscale(1);
     pointer-events: none;
     transition: filter 0.5s ease-in-out;
 }
@@ -236,8 +295,8 @@ body {
 }
 
 .blur-content {
-    backdrop-filter: blur(5px) invert(1);
-    -webkit-backdrop-filter: blur(5px) invert(1);
+    backdrop-filter: blur(5px) invert(1) grayscale(1);
+    -webkit-backdrop-filter: blur(5px) invert(1) grayscale(1);
     transition: backdrop-filter 0.5s ease-in-out, -webkit-backdrop-filter 0.5s ease-in-out;
 }
 
@@ -321,6 +380,24 @@ body {
     z-index: 1;
 }
 
+@media screen and (max-width: 768px) {
+    .answer {
+        margin-left: 90px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .answer {
+        margin-left: 60px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .answer {
+        margin-left: 40px;
+    }
+}
+
 .interview::-webkit-scrollbar {
     width: 8px;
 }
@@ -355,7 +432,8 @@ body {
     color: white;
     z-index: 6001;
     transition: filter 0.3s ease;
-    letter-spacing: -0.05rem;
+    letter-spacing: -0.025rem;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .color-change {
@@ -368,12 +446,51 @@ body {
     color: white;
     cursor: pointer;
     z-index: 6001;
-    transition: opacity 0.3s ease;
+    transition: filter 0.3s ease;
     letter-spacing: -0.05rem;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .color-change:hover {
-    opacity: 0.7;
+    filter: blur(1px);
+}
+
+/* Keep the same hover effect when inverted */
+.text-container.inverted .color-change {
+    filter: invert(1) grayscale(1);
+}
+
+.text-container.inverted .color-change:hover {
+    filter: invert(1) grayscale(1) blur(1px);
+}
+
+@media screen and (max-width: 768px) {
+    .song-name,
+    .color-change {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .song-name,
+    .color-change {
+        font-size: 14px;
+        bottom: 15px;
+    }
+    .song-name {
+        right: 10px;
+    }
+    .color-change {
+        left: 10px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .song-name,
+    .color-change {
+        font-size: 12px;
+        bottom: 12px;
+    }
 }
 
 /* Inverted styles */
@@ -384,15 +501,14 @@ body {
 .text-container.inverted .interview,
 .text-container.inverted .interview-name img,
 .text-container.inverted .song-name,
-.text-container.inverted .color-change,
 .text-container.inverted .close-text-btn {
-    filter: invert(1);
+    filter: invert(1) grayscale(1);
 }
 
 /* Specific styles for question and answer when inverted */
 .text-container.inverted .question,
 .text-container.inverted .answer {
-    filter: invert(1);
+    filter: invert(1) grayscale(1);
     color: black;  /* Force black color when inverted */
     -webkit-text-fill-color: black;  /* For webkit browsers */
 }
@@ -466,4 +582,14 @@ body {
 
 .cigarette6:hover {
     transform: translate(calc(-50% + 140px), -65%) rotate(-90deg);
+}
+
+.underline {
+    text-decoration: underline;
+    color: white;
+}
+
+.underline:hover {
+    color: #FAF9F6;
+    text-decoration: none;
 }
