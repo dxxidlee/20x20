@@ -1,7 +1,7 @@
 body {
     margin: 0;
     min-height: 100vh;
-    background: url('home_img/background_copy.png') no-repeat center center/cover;
+    background: url('home_img/background.png') no-repeat center center/cover;
     background-color: black;
     position: relative;
     overflow: hidden;
@@ -41,7 +41,7 @@ body {
     transform: translate(-50%, -50%);
     width: 904px;
     height: 904px;
-    background: url('home_img/pack_front_view_no_cig.png') no-repeat center center;
+    background: url('home_img/pack_front.png') no-repeat center center;
     background-size: contain;
     z-index: 5000;
     pointer-events: none;
@@ -78,7 +78,6 @@ body {
     display: block;
 }
 
-/* Add these media queries */
 @media screen and (max-width: 768px) {
     .menu-item {
         width: 160px;
@@ -319,7 +318,6 @@ body {
     -ms-overflow-style: none;
 }
 
-/* Hide scrollbar for Chrome, Safari and Opera */
 #interview::-webkit-scrollbar {
     display: none;
 }
@@ -417,7 +415,7 @@ body {
 }
 
 .interview-name img {
-    max-width: 200px;  /* Adjust this value as needed */
+    max-width: 200px;
     height: auto;
 }
 
@@ -454,7 +452,6 @@ body {
     filter: blur(1px);
 }
 
-/* Keep the same hover effect when inverted */
 .text-container.inverted .color-change {
     filter: invert(1) grayscale(1);
 }
@@ -492,7 +489,6 @@ body {
     }
 }
 
-/* Inverted styles */
 .text-container.inverted {
     background: white;
 }
@@ -504,20 +500,17 @@ body {
     filter: invert(1) grayscale(1);
 }
 
-/* Specific styles for question and answer when inverted */
 .text-container.inverted .question,
 .text-container.inverted .answer {
     filter: invert(1) grayscale(1);
-    color: black;  /* Force black color when inverted */
-    -webkit-text-fill-color: black;  /* For webkit browsers */
+    color: black;
+    -webkit-text-fill-color: black;
 }
 
-/* Keep audio controls normal if visible */
 .text-container.inverted audio {
     filter: invert(0);
 }
 
-/* Position cigarettes relative to pack center */
 .cigarette1 {
     top: 50%;
     left: 50%;
@@ -558,7 +551,6 @@ body {
     z-index: 300;
 }
 
-/* Update hover states to match new positions */
 .cigarette1:hover {
     transform: translate(calc(-50% - 140px), -65%) rotate(-90deg);
 }
