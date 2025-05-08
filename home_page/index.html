@@ -1003,12 +1003,12 @@
         }
 
         function closePanel() {
-            const panel = document.getElementById("panel");s
+            const panel = document.getElementById("panel");
             panel.classList.remove("active");
             document.body.classList.remove('blur-content');
 
             document.querySelectorAll('[class^="cigarette"]').forEach(cig => {
-            cig.style.pointerEvents = 'auto';
+                cig.style.pointerEvents = 'auto';
             });
         }
 

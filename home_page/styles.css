@@ -219,7 +219,7 @@ body {
 }
 
 #instructions-text {
-    text-align: center;
+    text-align: left;
 }
 
 #information-text {
@@ -228,14 +228,14 @@ body {
 
 @media screen and (max-width: 768px) {
     #instructions-text, #information-text {
-        font-size: clamp(14px, 1.6vw, 20px);
+        font-size: clamp(16px, 1.8vw, 22px);
         max-width: 500px;
     }
 }
 
 @media screen and (max-width: 480px) {
     #instructions-text, #information-text {
-        font-size: clamp(12px, 1.4vw, 18px);
+        font-size: clamp(18px, 2vw, 24px);
         max-width: 400px;
         letter-spacing: -0.03rem;
     }
@@ -243,7 +243,7 @@ body {
 
 @media screen and (max-width: 320px) {
     #instructions-text, #information-text {
-        font-size: clamp(11px, 1.2vw, 16px);
+        font-size: clamp(20px, 2.2vw, 26px);
         max-width: 300px;
     }
 }
@@ -337,7 +337,6 @@ body {
     flex-direction: column;
     padding-top: 100px;
     padding-bottom: 100px;
-    
 }
 
 .qa-container {
@@ -353,7 +352,7 @@ body {
 
 .qa-container:last-child {
     margin-bottom: 5%;
-}
+}s
 
 .question {
     margin-left: 10px;
@@ -378,18 +377,30 @@ body {
 }
 
 @media screen and (max-width: 768px) {
+    .interview {
+        width: calc(100% - 30%);
+        margin: 0 30px;
+    }
     .answer {
         margin-left: 90px;
     }
 }
 
 @media screen and (max-width: 480px) {
+    .interview {
+        width: calc(100% - 20%);
+        margin: 0 20px;
+    }
     .answer {
         margin-left: 60px;
     }
 }
 
 @media screen and (max-width: 320px) {
+    .interview {
+        width: calc(100% - 15%);
+        margin: 0 15px;
+    }
     .answer {
         margin-left: 40px;
     }
@@ -592,7 +603,7 @@ body {
     opacity: 0.5;
     pointer-events: none;
     transition: all 0.3s ease;
-    z-index: 10001;
+    z-index: 6000;
 }
 
 .text-container.inverted .random-cig-image {
